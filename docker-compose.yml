@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  web:
+    container_name: scraper_web
+    build:
+      context: ./docker/web/.
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/web/apache/virtualhost.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./docker/web/php/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - "80:80"
