@@ -18,7 +18,9 @@
     <h1>PHP - Coursera Scraper</h1>
 	<p>Developed using Symfony - DomCrawler - CssSelector - Goutte</p>
 	<form method="POST" action="panther_requests.php">
+		<p>Select a category to scrape</p>
 		<select id="courses_select" name="category_selected">
+			<option hidden disabled selected value>Choose category</option>
 			<?
 			foreach($categories as $category):
 				?>
