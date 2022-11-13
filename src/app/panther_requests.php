@@ -92,11 +92,16 @@ function execute(){
 							$course["course_instructors"] = $courses_client->filter('div.rc-BannerInstructorInfo span')->text();
 						}
 					}
-					if(strpos($course["course_instructors"], "+") == true){
-						$course["course_instructors"] = substr($course["course_instructors"], 0, strpos($course["course_instructors"], "+") - 1);
+					if(!empty($course["course_instructores"])){
+						if(strpos($course["course_instructors"], "+") == true){
+							$course["course_instructors"] = substr($course["course_instructors"], 0, strpos($course["course_instructors"], "+") - 1);
+						}
+						if(strpos($course["course_instructors"], ",") == true){
+							$course["course_instructors"] = substr($course["course_instructors"], 0, strpos($course["course_instructors"], ",") - 1);
+						}
 					}
-					if(strpos($course["course_instructors"], ",") == true){
-						$course["course_instructors"] = substr($course["course_instructors"], 0, strpos($course["course_instructors"], ",") - 1);
+					else{
+						$course["course_instructores"] = "No instructor specified.";
 					}
 	
 					if($courses_client->filter('div.horizontal-box div.rc-ProductMetrics div span strong span')->count() > 0){
