@@ -1,7 +1,6 @@
 <?php
 	$asd = 123;
 	$hello = '';
-	include_once './goutte_requests.php';
 ?>
 
 <html lang="en">
