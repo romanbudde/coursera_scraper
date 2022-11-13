@@ -41,7 +41,7 @@ function execute(){
 		// once courses are reloaded (filtered by selected category) - get each individual course
 		$last_page = false;
 		$course_count = 0;
-		file_put_contents('/var/www/html/' . $selected_category . '.csv', "Category Name, Course Name, First Instructor Name, Course Description, # of Students Enrolled, # of Ratings \n", FILE_APPEND);
+		file_put_contents('/var/www/html/courses/' . $selected_category . '.csv', "Category Name, Course Name, First Instructor Name, Course Description, # of Students Enrolled, # of Ratings \n", FILE_APPEND);
 		while(!$last_page){
 			$crawler = $client->refreshCrawler();
 			$crawler = $client->waitFor('div.ais-InfiniteHits');
@@ -126,8 +126,8 @@ function execute(){
 					$course["course_ratings"] = $courses_client->filter("span[data-test='ratings-count-without-asterisks']")->count() > 0 ? $courses_client->filter("span[data-test='ratings-count-without-asterisks']")->text() : '';
 				}
 				$course_count++;
-				file_put_contents('/var/www/html/' . $selected_category . '.csv', implode(', ', $course), FILE_APPEND);
-				file_put_contents('/var/www/html/' . $selected_category . '.csv', "\n $course_count--------------------------------- \n", FILE_APPEND);
+				file_put_contents('/var/www/html/courses/' . $selected_category . '.csv', implode(', ', $course), FILE_APPEND);
+				file_put_contents('/var/www/html/courses/' . $selected_category . '.csv', "\n $course_count--------------------------------- \n", FILE_APPEND);
 			});
 		
 			// once the whole page has been scraped, go to the following page if it this is not already the last page.
