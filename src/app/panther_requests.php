@@ -50,10 +50,6 @@ function execute(){
 				$course = [];
 				$courses_client = $httpClient->click($node->link());
 	
-				if(str_contains($node->link()->getUri() ,'data-analytics-japanese')){
-					$asd = 123;
-				}
-	
 				if(str_contains($node->attr('to'), '/professional-certificates')){
 					$course["course_name"] = $courses_client->filter('main h1')->count() > 0 ? $courses_client->filter('main h1')->text() : '';
 					$course["course_description"] = $courses_client->filter('main p')->count() > 0 ?$courses_client->filter('main p')->text() : '';
