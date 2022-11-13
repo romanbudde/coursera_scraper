@@ -18,9 +18,7 @@ function execute(){
 			'--disable-dev-shm-usage',
 			'--no-sandbox'
 		], $options);
-		// $client = Client::createChromeClient(null, null, $options);
 	
-		//code here
 		$reponse_courses_panther = $client->request('GET', 'https://www.coursera.org/courses');
 		$crawler = $client->waitFor('button[aria-label="Show more Subject options"]');
 	
