@@ -26,9 +26,19 @@ function execute(){
 		$client->executeScript("document.querySelector('[aria-label=\'Show more Subject options\']').click();");
 		$client->executeScript("
 			var categories = document.getElementById('checkbox-group').children;
-	
+		
 			for (var i = 0; i < categories.length; i++) {
-				if(categories[i].innerText === ' . $selected_category . '){
+				if(categories[i].innerText === '.$selected_category.'){
+					categories[i].children[0].getElementsByTagName('input')[0].click();
+				}
+			}
+		");
+
+		$client->executeScript("
+			var categories = document.getElementById('checkbox-group').children;
+		
+			for (var i = 0; i < categories.length; i++) {
+				if(categories[i].innerText === '$selected_category'){
 					categories[i].children[0].getElementsByTagName('input')[0].click();
 				}
 			}
