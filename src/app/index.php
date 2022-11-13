@@ -1,8 +1,3 @@
-<?php
-	$asd = 123;
-	$hello = '';
-?>
-
 <html lang="en">
     <!-- DEfines languages of content : English -->
     <head>
