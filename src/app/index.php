@@ -18,11 +18,11 @@
     <h1>PHP - Coursera Scraper</h1>
 	<p>Developed using Symfony - DomCrawler - CssSelector - Goutte</p>
 	<form method="POST" action="panther_requests.php">
-		<select id="courses_select">
+		<select id="courses_select" name="category_selected">
 			<?
 			foreach($categories as $category):
 				?>
-				<option  value="<?php echo $category; ?>"><?php echo $category; ?></option>
+				<option value="<?php echo $category; ?>"><?php echo $category; ?></option>
 				<?
 			endforeach;
 			?>
